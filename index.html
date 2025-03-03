@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITcare Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="https://itcaresolutions2025.weebly.com/about-me.html">About Us</a>
+        <a href="https://itcaresolutions2025.weebly.com/services.html">Services</a>
+        <a href="https://koskeikibetfelix.blogspot.com/">FAQs</a>
+        <a href="https://itcaresolutions2025.weebly.com/contact-us.html">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" id="mainContent">
+        <h1>Welcome to ITcare Solutions</h1>
+        <p>Your trusted partner in delivering the best IT solutions to meet your needs.</p>
+
+        <!-- Services Section -->
+        <div class="services">
+            <h2>1. Virtual Assistance</h2>
+            <p>📌 Stay organized and stress-free! We manage emails, schedules, and data entry so you can focus on growing your business.</p>
+
+            <h2>2. Social Media Management</h2>
+            <p>📌 Enhance your online presence with engaging posts, audience interaction, and performance analytics to strengthen your brand.</p>
+
+            <h2>3. Basic Graphic Design</h2>
+            <p>📌 Make your business stand out with stunning visuals! We create professional, budget-friendly designs using easy-to-use tools.</p>
+
+            <h2>4. Content Writing & Blogging</h2>
+            <p>📌 Get noticed on search engines! We craft high-quality, SEO-optimized content that educates, engages, and converts readers.</p>
+
+            <h2>5. Affiliate Marketing</h2>
+            <p>📌 Earn passive income! We help you promote high-quality products and generate revenue effortlessly.</p>
+
+            <h2>6. Online Tutoring</h2>
+            <p>📌 Learn from the best! We provide expert guidance and personalized coaching to enhance your skills.</p>
+
+            <h2>7. Selling Digital Products</h2>
+            <p>📌 Monetize your knowledge! We assist in creating and selling e-books, templates, and other digital products.</p>
+
+            <h2>8. Simple Video Editing</h2>
+            <p>📌 Elevate your content! We edit videos to ensure they are engaging, professional, and ready for sharing.</p>
+
+            <h2>9. Dropshipping</h2>
+            <p>📌 Start an online store with zero inventory! We guide you in setting up and managing a successful e-commerce business.</p>
+
+            <h2>10. Resume & Cover Letter Writing</h2>
+            <p>📌 Secure your dream job! We craft compelling, professional resumes and cover letters to make you stand out to recruiters.</p>
+        </div>
+    </div>
+
+    <!-- Welcome Popup -->
+    <div class="popup" id="welcomePopup">
+        <p>🎉 Welcome to ITcare Solutions: The Best Solution Platform! 🎉</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>📞 WhatsApp: 0745141581 | 📧 Email: <a href="mailto:felixkibetkoskei@gmail.com">felixkibetkoskei@gmail.com</a></p>
+        <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/koskeikibet" target="_blank">www.linkedin.com/in/koskeikibet</a></p>
+        <p>&copy; 2025 ITcare Solutions. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Popup & Authentication -->
+    <script>
+        // Show the popup when the page loads
+        window.onload = function() {
+            document.getElementById("welcomePopup").style.display = "block";
+            if (!localStorage.getItem("loggedIn")) {
+                window.location.href = "login.html";
+            }
+        };
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById("welcomePopup").style.display = "none";
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>

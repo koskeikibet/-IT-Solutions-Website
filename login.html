@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ITcare Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login to ITcare Solutions</h2>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Enter Email" required>
+            <input type="password" id="loginPassword" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+            <p>New User? <a href="#" onclick="showRegister()">Register Here</a></p>
+        </form>
+
+        <!-- Registration Form (Initially Hidden) -->
+        <form id="registerForm" style="display: none;">
+            <h2>Register</h2>
+            <input type="text" id="registerName" placeholder="Enter Name" required>
+            <input type="email" id="registerEmail" placeholder="Enter Email" required>
+            <input type="password" id="registerPassword" placeholder="Create Password" required>
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login Here</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Show registration form
+        function showRegister() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+        }
+
+        // Show login form
+        function showLogin() {
+            document.getElementById("registerForm").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        }
+
+        // Handle Registration
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("registerName").value;
+            let email = document.getElementById("registerEmail").value;
+            let password = document.getElementById("registerPassword").value;
+
+            // Save user to local storage
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPassword", password);
+            alert("Registration Successful! Please Login.");
+            showLogin();
+        });
+
+        // Handle Login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let email = document.getElementById("loginEmail").value;
+            let password = document.getElementById("loginPassword").value;
+
+            let storedEmail = localStorage.getItem("userEmail");
+            let storedPassword = localStorage.getItem("userPassword");
+
+            if (email === storedEmail && password === storedPassword) {
+                alert("Login Successful!");
+                localStorage.setItem("loggedIn", "true");
+                window.location.href = "index.html"; // Redirect to main page
+            } else {
+                alert("Invalid Email or Password.");
+            }
+        });
+
+        // Redirect if already logged in
+        if (localStorage.getItem("loggedIn") === "true") {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
